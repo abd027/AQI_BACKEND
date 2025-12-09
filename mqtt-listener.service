@@ -1,0 +1,37 @@
+[Unit]
+Description=BreatheEasy MQTT Listener Service
+After=network.target postgresql.service redis.service
+Wants=postgresql.service redis.service
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/breatheasy/BackEnd
+Environment="PATH=/opt/breatheasy/venv/bin:/usr/local/bin:/usr/bin:/bin"
+Environment="DJANGO_SETTINGS_MODULE=breatheasy.settings"
+EnvironmentFile=/opt/breatheasy/BackEnd/.env
+
+# Start the MQTT listener
+ExecStart=/opt/breatheasy/venv/bin/python manage.py mqtt_listener
+
+# Restart policy
+Restart=always
+RestartSec=10
+StartLimitInterval=5min
+StartLimitBurst=5
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=mqtt-listener
+
+# Security hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/breatheasy/BackEnd
+
+[Install]
+WantedBy=multi-user.target

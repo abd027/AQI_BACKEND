@@ -1,0 +1,53 @@
+# Django and Core Framework
+Django>=5.0.1,<5.1
+djangorestframework>=3.14.0,<4.0
+
+# Authentication
+djangorestframework-simplejwt>=5.3.1,<6.0
+
+# Database - Using newer psycopg version (psycopg 3, not psycopg2)
+# This has better Windows support and pre-built wheels
+psycopg[binary]>=3.1.0,<4.0
+
+# Alternative: If you must use psycopg2, use this line instead:
+# psycopg2-binary>=2.9.10
+
+# Caching
+redis>=5.0.1,<6.0
+django-redis>=5.4.0,<6.0
+
+# CORS Support
+django-cors-headers>=4.3.1,<5.0
+
+# HTTP Requests for External APIs
+requests>=2.31.0,<3.0
+
+# MQTT Client
+paho-mqtt>=1.6.0,<2.0
+
+# Environment Variables
+python-decouple>=3.8,<4.0
+
+# Image Processing (if needed for user uploads, etc.)
+# AI / RAG Dependencies
+langchain>=0.1.0,<0.2.0
+langchain-huggingface>=0.0.1,<0.1.0
+langchain-chroma>=0.1.0,<0.2.0
+chromadb>=0.4.22,<0.6.0
+huggingface_hub>=0.20.0,<1.0
+
+# Background Tasks
+celery>=5.3.0,<6.0
+celery[redis]>=5.3.0,<6.0
+
+# WebSocket Support
+channels>=4.0.0,<5.0
+channels-redis>=4.1.0,<5.0
+daphne>=4.0.0,<5.0
+
+# Testing
+pytest>=7.4.0,<8.0
+pytest-django>=4.5.2,<5.0
+pytest-cov>=4.1.0,<5.0
+pytest-mock>=3.11.1,<4.0
+responses>=0.23.0,<1.0
