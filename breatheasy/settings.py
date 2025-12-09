@@ -37,7 +37,10 @@ SECRET_KEY = config('SECRET_KEY', default='django-insecure-pa^+mvsa+0xj0cr(m+3m+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=True, cast=bool)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1', cast=lambda v: [s.strip() for s in v.split(',')])
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1,aqi-backend-gohs.onrender.com', cast=lambda v: [s.strip() for s in v.split(',')])
+
+# CSRF Settings for production
+CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', default='https://aqi-backend-gohs.onrender.com', cast=lambda v: [s.strip() for s in v.split(',')])
 
 
 # Application definition
