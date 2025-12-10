@@ -12,6 +12,11 @@ psycopg[binary]>=3.1.0,<4.0
 # Alternative: If you must use psycopg2, use this line instead:
 # psycopg2-binary>=2.9.10
 
+# Render / Production Dependencies
+dj-database-url>=2.1.0,<3.0
+gunicorn>=21.2.0,<22.0
+whitenoise>=6.6.0,<7.0
+
 # Caching
 redis>=5.0.1,<6.0
 django-redis>=5.4.0,<6.0
