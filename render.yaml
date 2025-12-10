@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: aqi-backend
+    env: python
+    buildCommand: ./build.sh
+    startCommand: gunicorn your_project.wsgi:application --log-file -
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase: aqi-db
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: false
+
+databases:
+  - name: aqi-db
+    plan: free
