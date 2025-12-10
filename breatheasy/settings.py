@@ -108,9 +108,9 @@ ASGI_APPLICATION = 'breatheasy.asgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
+        default=os.environ.get("DATABASE_URL"),
         conn_max_age=600,
-        ssl_require=False  # Set to True if strictly verifying SSL, but Render handles this automatically via internal network usually, or public. 
-                           # However, dj_database_url handles 'postgres://' vs 'postgresql://' nicely.
+        ssl_require=True
     )
 }
 
